@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRAND FOWARD</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{--red:#ff1a1a;--gold:#d4af37;--dark:#050505}
+body{margin:0;background:var(--dark);color:#fff;font-family:'Poppins',sans-serif;overflow-x:hidden}
+
+/* CURSOR */
+.cursor{
+position:fixed;width:15px;height:15px;border-radius:50%;background:var(--gold);
+pointer-events:none;z-index:9999;box-shadow:0 0 25px var(--gold);
+}
+
+nav{position:fixed;width:100%;top:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(15px);padding:15px 50px;display:flex;justify-content:space-between;z-index:1000}
+nav h2{color:var(--gold);letter-spacing:2px}
+nav a{color:#aaa;margin:0 12px;text-decoration:none}
+nav a:hover{color:#fff}
+
+header{
+height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+background:radial-gradient(circle at center,#3a0000,#000);
+}
+
+header h1{
+font-family:'Playfair Display',serif;
+font-size:95px;
+letter-spacing:5px;
+background:linear-gradient(45deg,#fff,#d4af37);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:fadeUp 1.5s ease;
+}
+
+header p{color:#bbb;font-size:22px;margin:20px 0;animation:fadeUp 2s ease}
+
+.btn{
+padding:16px 45px;border:none;background:linear-gradient(45deg,#d4af37,#8c6b1f);
+color:#000;border-radius:40px;cursor:pointer;transition:0.4s;font-weight:600;
+animation:fadeUp 2.5s ease;
+}
+
+.btn:hover{transform:scale(1.1);box-shadow:0 0 40px rgba(212,175,55,0.6)}
+
+.section{padding:140px 20px;text-align:center}
+.section h2{font-family:'Playfair Display',serif;font-size:50px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;max-width:1200px;margin:auto}
+
+.card{
+background:rgba(255,255,255,0.03);padding:25px;border-radius:20px;
+border:1px solid rgba(255,255,255,0.05);transition:0.4s;
+transform:translateY(60px);opacity:0
+}
+.card.show{opacity:1;transform:translateY(0)}
+.card:hover{transform:scale(1.07);box-shadow:0 0 60px rgba(212,175,55,0.3)}
+
+.parallax{
+height:350px;background:url('https://picsum.photos/1200/600?blur=2') center/cover fixed;
+display:flex;align-items:center;justify-content:center;font-size:35px;
+font-family:'Playfair Display',serif;color:#fff;text-shadow:0 0 20px black
+}
+
+footer{background:#0a0a0a;padding:40px;text-align:center;border-top:1px solid #111}
+
+.whatsapp{position:fixed;bottom:25px;right:25px;background:#25D366;padding:16px;border-radius:50%;color:#fff}
+
+/* animations */
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<nav>
+<h2>BRAND FOWARD</h2>
+<div>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<header>
+<h1>BRAND FOWARD</h1>
+<p>Elite Digital Experience</p>
+<button class="btn">Start Your project</button>
+</header>
+
+<section class="section">
+<h2>Elite Services</h2>
+<div class="grid">
+<div class="card"><h3>Digital Branding</h3></div>
+<div class="card"><h3>Growth Marketing</h3></div>
+<div class="card"><h3>Premium Content</h3></div>
+<div class="card"><h3>Business Strategy</h3></div>
+</div>
+</section>
+
+<div class="parallax">Unmatched Experience</div>
+
+<section class="section" id="contact">
+<h2>Work With Us</h2>
+<form action="https://formspree.io/f/yourID" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" placeholder="Tell us about your vision"></textarea>
+<button class="btn">Submit</button>
+</form>
+</section>
+
+<a class="whatsapp" href="https://wa.me/923123456789">💬</a>
+
+<footer>
+<p>© 2026 BRAND FOWARD — UNSTOPPABLE</p>
+</footer>
+
+<script>
+const cards=document.querySelectorAll('.card');
+window.addEventListener('scroll',()=>{
+cards.forEach(c=>{
+if(c.getBoundingClientRect().top<window.innerHeight-100){c.classList.add('show')}
+})
+})
+
+const cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',e=>{
+cursor.style.top=e.clientY+'px';
+cursor.style.left=e.clientX+'px';
+})
+</script>
+
+</body>
+</html>
